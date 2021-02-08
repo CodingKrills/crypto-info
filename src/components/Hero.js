@@ -13,7 +13,7 @@ const Hero = () => {
                                 <a className="btn btn-primary btn-lg" href="/" role="button">Learn more</a>
                             </div>
                             <div className="col-12 col-md-4 col-sm-12">
-                                <img className="img-fluid" src={'https://preview.colorlib.com/theme/cryptos/img/bg-img/bg-2.png'} alt="crypto" />
+                                <img className="img-fluid hero-coin-img" src={'https://preview.colorlib.com/theme/cryptos/img/bg-img/bg-2.png'} alt="crypto" />
                             </div>
                         </div>
                     </div>

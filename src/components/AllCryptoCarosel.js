@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import {
+    Link
+} from "react-router-dom";
+
 import Slider from "react-slick";
 const axios = require('axios');
 
-const AllCrypto = () => {
+const AllCryptoCarosel = () => {
 
     var [loading, setLoading] = useState(true);
     const [data, setData] = useState()
@@ -11,7 +15,7 @@ const AllCrypto = () => {
         getUser();
     }, [])
 
-    async function getUser() {
+    const getUser = async () => {
         try {
             const response = await axios
                 .get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false');
@@ -29,6 +33,7 @@ const AllCrypto = () => {
 
     var settings = {
         dots: false,
+        arrows: false,
         infinite: true,
         lazyLoad: true,
         autoplaySpeed: 2000,
@@ -68,13 +73,8 @@ const AllCrypto = () => {
 
 
     return (
-        <div className="AllCrypto">
-            <h1>AllCrypto</h1>
-
-
-            <div className="container">
-                <h2> Responsive </h2>
-
+        <div className="AllCryptoCarosel">
+            <div className="container py-4">
 
                 {loading ? <>
                     <h1>Loading ... .. ... .....</h1>
@@ -86,14 +86,19 @@ const AllCrypto = () => {
                             {data.map((item) => {
 
                                 return (
-                                    <div>
-                                        <div className="card AllCrypto-card shadow" key={item.id}>
-                                            <div className="card-body">
-                                                <img src={item.image} className="card-img-top img-fluid" alt="coins" />
-                                                <h5 className="card-title">{item.name}</h5>
-                                                <p className="card-text">{item.symbol}</p>
+                                    <div key={item.id}>
+                                        <Link to={`/${item.id}`}>
+                                            < div className="card AllCryptoCard shadow" >
+                                                <div className="card-body">
+                                                    <img src={item.image} className="AllCryptoCaroselImg img-fluid" alt="coins" />
+                                                    <div className="AllCryptoCaroseText">
+                                                        <h5 className="card-title AllCryptoCaroseTextHeading">{item.name}</h5>
+                                                        <p className="card-text AllCryptoCaroseTextCurrentPrice">Price : {item.current_price} $</p>
+
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </Link>
                                     </div>
                                 )
 
@@ -109,4 +114,4 @@ const AllCrypto = () => {
     )
 }
 
-export default AllCrypto
+export default AllCryptoCarosel

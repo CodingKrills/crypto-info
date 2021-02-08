@@ -1,0 +1,100 @@
+@media only screen and (max-width: 600px) {
+  /*  */
+
+  .bgimage {
+    width: 100%;
+    height: 100vh;
+    background: url("./assets/download.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .jumb {
+    padding: 25vh 0 0 0;
+    background-color: #ffffff00;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    color: #fff;
+  }
+
+  .hero-white-h1 {
+    font-weight: 800;
+    font-size: 2rem;
+  }
+
+  .hero-gold-h1 {
+    font-weight: 800;
+    font-size: 3rem;
+    color: rgb(226, 192, 0);
+  }
+
+  .hero-coin-img {
+    width: 100%;
+    padding: 15% 15% 0% 15%;
+  }
+
+  .hero-coin-img {
+    animation: MoveUpDown 3s linear infinite;
+    position: relative;
+    left: 0;
+    bottom: 0;
+  }
+
+  @keyframes MoveUpDown {
+    0%,
+    100% {
+      bottom: 0;
+    }
+    50% {
+      bottom: 20px;
+    }
+  }
+  .AllCryptoCarosel,
+  .AllCryptoTable {
+    background-color: #301768;
+  }
+
+  .AllCryptoCarosel {
+    margin: 0;
+  }
+
+  .AllCryptoCaroselImg {
+    width: 99%;
+    padding: 0;
+  }
+
+  .AllCryptoCaroseText {
+    margin: 1% 0;
+  }
+
+  .AllCryptoCaroseTextHeading {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    padding: 5% 0;
+    color: gold;
+  }
+
+  .AllCryptoCaroseTextCurrentPrice {
+    font-size: 0.4rem;
+  }
+
+  .AllCryptoCard {
+    width: 95%;
+    height: 150px;
+    background-color: #301768;
+    border: 2px solid gold;
+  }
+
+  .SingleCrypto {
+    background-color: #301768;
+  }
+}

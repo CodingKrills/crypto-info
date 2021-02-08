@@ -1,13 +1,15 @@
 import React from 'react'
 
 import Hero from "../components/Hero";
-import AllCrypto from "../components/AllCrypto";
+import AllCryptoCarosel from "../components/AllCryptoCarosel";
+import AllCryptoTableList from "../components/AllCryptoTableList";
 
 const Home = () => {
     return (
         <div>
             <Hero />
-            <AllCrypto />
+            <AllCryptoCarosel />
+            <AllCryptoTableList />
         </div>
     )
 }

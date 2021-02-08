@@ -4,6 +4,8 @@ import Header from "./components/Header";
 
 import Home from "./screens/Home";
 import About from "./screens/About";
+import SingleCrypto from "./screens/SingleCrypto";
+
 
 
 import {
@@ -19,8 +21,9 @@ const Router = () => {
                 <div>
                     <Header />
                     <Switch>
-                        <Route path="/" component={Home} exact />
+                        <Route path="/:id" component={SingleCrypto} exact />
                         <Route path="/about" component={About} exact />
+                        <Route path="/" component={Home} exact />
                     </Switch>
                 </div>
             </>
