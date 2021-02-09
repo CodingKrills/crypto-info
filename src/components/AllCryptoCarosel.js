@@ -77,7 +77,11 @@ const AllCryptoCarosel = () => {
             <div className="container py-4">
 
                 {loading ? <>
-                    <h1>Loading ... .. ... .....</h1>
+                    <>
+
+                        < div className="card AllCryptoCard shadow" ></div>
+
+                    </>
                 </>
                     :
                     <>
