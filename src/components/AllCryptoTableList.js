@@ -37,9 +37,9 @@ const AllCryptoTableList = () => {
         <div className="AllCryptoTable">
             <div className="container py-4">
 
-                <div class="table-responsive">
+                <div className="table-responsive">
 
-                    <table class="table table-bordered">
+                    <table className="table table-bordered">
 
 
                         {loading ?
@@ -69,7 +69,7 @@ const AllCryptoTableList = () => {
                                     return (
 
                                         <tbody>
-                                            <tr>
+                                            <tr >
                                                 <td>{item.market_cap_rank}</td>
 
                                                 <td><img className="img-fluid" width={20} src={item.image} alt='coins' /></td>
@@ -99,26 +99,31 @@ const AllCryptoTableList = () => {
 
                     </table>
 
-                    <div>
-                        {/* <p>You clicked {startLimit} times</p> */}
-
-                        <button className="btn btn-md btn-danger m-4" onClick={() =>
-                            setStartLimit(startLimit - 5)
-
-                        }>
-                            PREV
-                    </button>
-
-                        <button className="btn btn-md btn-danger m-4" onClick={() =>
-                            setStartLimit(startLimit + 5)
-
-                        }>
-                            NEXT
-                    </button>
-
-                    </div>
 
                 </div>
+
+
+                {/* PAGINATIOn */}
+
+
+                <div className="text-center">
+                    {/* <p>You clicked {startLimit} times</p> */}
+
+                    <button className="btn btn-md btn-danger m-4" onClick={() =>
+                        setStartLimit(startLimit - 5)
+
+                    }>
+                        PREV
+                    </button>
+
+                    <button className="btn btn-md btn-danger m-4" onClick={() =>
+                        setStartLimit(startLimit + 5)
+
+                    }>
+                        NEXT
+                    </button>
+                </div>
+
             </div>
 
             <div>
