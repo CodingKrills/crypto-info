@@ -102,6 +102,13 @@ p {
   border: 2px solid gold;
 }
 
+.AllCryptoCardTable {
+  width: 100%;
+  height: 220px;
+  background-color: #301768;
+  border: 2px solid gold;
+}
+
 .SingleCrypto {
   background-color: #301768;
 }
