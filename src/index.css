@@ -10,7 +10,8 @@
 .bgimage {
   width: 100%;
   height: 100vh;
-  background: url("./assets/download.jpeg");
+  background: linear-gradient(45deg, #2d114e, #00000054),
+    url("./assets/download.jpeg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -32,8 +33,17 @@ p {
 
 .btn-theme-solid {
   padding: 1rem 4rem;
-  border-radius: 0%;
+  border-radius: 10px;
   background-color: #cb007b;
+  margin-top: 2rem;
+}
+
+.btn-theme-solid:hover {
+  padding: 1rem 4rem;
+  border-radius: 10px;
+  background-color: #502070;
+  transition: 0.2s;
+  color: gold;
 }
 
 .hero-white-h1 {
@@ -98,8 +108,19 @@ p {
 .AllCryptoCard {
   width: 90%;
   height: 220px;
-  background-color: #301768;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #0000003f, #53169900); /*#301768;*/
+}
+
+.AllCryptoCard:hover {
+  width: 90%;
+  height: 220px;
+  /*background-color: #301768;*/
+  background-color: #3b1d77;
   border: 2px solid gold;
+  transition: 0.2s;
+  border-radius: 10px;
+  transform: scale(0.97);
 }
 
 .AllCryptoCardTable {
@@ -113,12 +134,38 @@ p {
   background-color: #301768;
 }
 
+table,
 th,
 td {
-  color: #fff;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  vertical-align: middle;
+  border-collapse: collapse;
+  background-color: #2c155c;
+  border: 2px solid #4a2e86;
+
+  padding: 0.8rem;
 }
 
-.table-bordered-theme {
-  color: gold !important;
-  border: 1px solid gold;
+table {
+  width: 100%;
+  border-radius: 20px;
+}
+
+a {
+  color: rgb(233, 233, 233);
+  text-decoration: none; /* no underline */
+}
+
+a:hover {
+  color: gold;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.coin-info {
+  margin-top: 2rem;
+  background-color: rgba(0, 0, 0, 0.247);
+  border-radius: 10px;
+  padding: 2rem;
 }

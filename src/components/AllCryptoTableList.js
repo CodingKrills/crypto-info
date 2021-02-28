@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import {
     Link
 } from "react-router-dom";
+import Spinner from "react-bootstrap/Spinner";
 
 const axios = require('axios');
 
@@ -39,14 +40,23 @@ const AllCryptoTableList = () => {
 
                 <div className="table-responsive">
 
-                    <table className="table table-bordered">
+                <table >
 
 
                         {loading ?
 
                             <>
 
-                                < div className="card AllCryptoCardTable shadow" ></div>
+<Spinner
+                animation="border"
+                role="status"
+                size="md"
+                variant="light"
+
+                style={{padding:"10px"}}
+              >
+                <span className="sr-only">Loading...</span>
+              </Spinner>
 
                             </>
 
@@ -60,7 +70,7 @@ const AllCryptoTableList = () => {
                                         <th scope="col">NAME</th>
                                         <th scope="col">SYMBOL</th>
                                         <th scope="col">CURRENT PRICE</th>
-                                        <th scope="col">VIEW</th>
+                                        
                                     </tr>
                                 </thead>
 
@@ -69,21 +79,21 @@ const AllCryptoTableList = () => {
                                     return (
 
                                         <tbody>
+                                          
                                             <tr >
-                                                <td>{item.market_cap_rank}</td>
-
+                                                <td >{item.market_cap_rank}</td>
                                                 <td><img className="img-fluid" width={20} src={item.image} alt='coins' /></td>
-                                                <td>{item.name}</td>
+                                                <td><Link to={item.id}>
+                                                        <span>
+                                                        {item.name}
+                                                        </span>
+                                                    </Link></td>
                                                 <td>{item.symbol}</td>
                                                 <td>{item.current_price}</td>
-                                                <td>
-                                                    <Link to={item.id}>
-                                                        <span>
-                                                            VIEW
-                                                        </span>
-                                                    </Link>
-                                                </td>
+                                                
                                             </tr>
+                                                
+                                            
                                         </tbody>
 
                                     )
@@ -108,20 +118,17 @@ const AllCryptoTableList = () => {
 
                 <div className="text-center">
                     {/* <p>You clicked {startLimit} times</p> */}
-
+                    { (startLimit>5)?
+                    <button className="btn btn-md btn-danger m-4" onClick={() =>   
+                        setStartLimit(startLimit - 5) }> PREV</button>
+                    :<button className="btn btn-md btn-danger m-4" disabled>PREV</button>
+                    
+                    }
+                    
+                    {(startLimit<100)?
                     <button className="btn btn-md btn-danger m-4" onClick={() =>
-                        setStartLimit(startLimit - 5)
-
-                    }>
-                        PREV
-                    </button>
-
-                    <button className="btn btn-md btn-danger m-4" onClick={() =>
-                        setStartLimit(startLimit + 5)
-
-                    }>
-                        NEXT
-                    </button>
+                        setStartLimit(startLimit + 5) }>  NEXT</button>
+                    :<button className="btn btn-md btn-danger m-4" disabled>NEXT</button>}
                 </div>
 
             </div>
