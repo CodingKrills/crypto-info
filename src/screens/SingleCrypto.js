@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Spinner from "react-bootstrap/Spinner";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 
 const axios = require("axios");
 
@@ -36,24 +34,20 @@ const SingleCrypto = () => {
   return (
     <div>
       <section className="SingleCrypto">
-        <div className="container" style={{ marginTop: "5rem" }}>
+        <div className="container" style={{ marginTop: "8rem" }}>
           <Link to="/">
-            <Button variant="danger" style={{ marginTop: "2rem" }}>
-              <span className="span-nav-link">Back</span>
-            </Button>
+            <button className="btn btn-md btn-circle m-4 shadow grow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gold" className="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                <path d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+              </svg>
+            </button>
           </Link>
 
           {loading ? (
             <>
-              <Spinner
-                animation="border"
-                role="status"
-                size="md"
-                variant="light"
-                style={{ display: "flex", justifyContent: "center" }}
-              >
-                <span className="sr-only">Loading...</span>
-              </Spinner>
+              <div className='loader'></div>
+              <p className="text-center text-theme">Please Wait While Its Been Loading</p>
+              <div className='loader2'></div>
             </>
           ) : (
             <div className="row">

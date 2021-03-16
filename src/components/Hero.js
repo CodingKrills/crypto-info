@@ -13,12 +13,12 @@ const Hero = () => {
                             <div className="col-12 col-md-8 col-sm-12">
                                 <h1 className="hero-white-h1">Take a step into the </h1>
                                 <h1 className="hero-gold-h1">Crypto world !</h1>
-                                <button className="btn btn-theme-solid btn-lg shadow">
-                                    <Link to='/'><span className="span-nav-link">Get Started</span></Link>
+                                <button className="btn btn-theme-solid btn-lg shadow rounded-pill grow">
+                                    <Link to='/'>Get Started</Link>
                                 </button>
                             </div>
                             <div className="col-12 col-md-4 col-sm-12">
-                                <img className="img-fluid hero-coin-img" src={'https://preview.colorlib.com/theme/cryptos/img/bg-img/bg-2.png'} alt="crypto" />
+                                <img className="img-fluid hero-coin-img grow" src={'https://preview.colorlib.com/theme/cryptos/img/bg-img/bg-2.png'} alt="crypto" />
                             </div>
                         </div>
                     </div>

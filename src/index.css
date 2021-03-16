@@ -1,10 +1,37 @@
-.navbar {
-  background-color: #301768;
+body,
+html .navbar {
+  background-color: #301768 !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: gold;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: goldenrod;
+}
+
+.navbar-brand {
+  font-weight: 800;
 }
 
 .span-nav-link {
   text-decoration: none;
-  color: rgb(255, 255, 255);
+  color: gold !important;
+  font-weight: 800;
 }
 
 .bgimage {
@@ -35,19 +62,36 @@ a {
   color: yellow !important;
 }
 
+.text-theme {
+  color: gold;
+  font-weight: 800;
+  font-size: large;
+}
+
 .btn-theme-solid {
   padding: 1rem 4rem;
   border-radius: 10px;
   background-color: #cb007b;
   margin-top: 2rem;
+  color: gold;
 }
 
 .btn-theme-solid:hover {
   padding: 1rem 4rem;
   border-radius: 10px;
-  background-color: #502070;
+  background-color: #e7038c;
   transition: 0.2s;
   color: gold;
+}
+
+.btn-circle {
+  background-color: #cb007b;
+  width: 50px;
+  height: 50px;
+  padding: 7px 10px;
+  border-radius: 25px;
+  font-size: 10px;
+  text-align: center;
 }
 
 .hero-white-h1 {
@@ -172,4 +216,141 @@ a:hover {
   background-color: rgba(0, 0, 0, 0.247);
   border-radius: 10px;
   padding: 2rem;
+}
+
+.grow {
+  transition: all 0.2s ease-in-out;
+}
+.grow:hover {
+  transform: scale(1.1);
+}
+
+/* loader */
+.loader {
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin: 20px auto;
+  position: relative;
+  background: radial-gradient(ellipse at center, gold 69%, rgba(0, 0, 0, 0) 70%),
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0) 47%,
+      gold 48%,
+      gold 52%,
+      rgba(0, 0, 0, 0) 53%
+    );
+  background-size: 20px 20px, 20px auto;
+  background-repeat: repeat-x;
+  background-position: center bottom, center -5px;
+  box-sizing: border-box;
+}
+.loader::before,
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  left: -20px;
+  top: 0;
+  width: 20px;
+  height: 60px;
+  background: radial-gradient(ellipse at center, gold 69%, rgba(0, 0, 0, 0) 70%),
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0) 47%,
+      gold 48%,
+      gold 52%,
+      rgba(0, 0, 0, 0) 53%
+    );
+  background-size: 20px 20px, 20px auto;
+  background-repeat: no-repeat;
+  background-position: center bottom, center -5px;
+  transform: rotate(0deg);
+  transform-origin: 50% 0%;
+  animation: animPend 1s linear infinite alternate;
+}
+.loader::after {
+  animation: animPend2 1s linear infinite alternate;
+  left: 100%;
+}
+
+@keyframes animPend {
+  0% {
+    transform: rotate(22deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes animPend2 {
+  0%,
+  55% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-22deg);
+  }
+}
+
+/* loader 2 */
+.loader2 {
+  width: 0;
+  height: 4.8px;
+  display: inline-block;
+  position: relative;
+  background: gold;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  animation: animFw 8s linear infinite;
+}
+.loader2::after,
+.loader2::before {
+  content: "";
+  width: 10px;
+  height: 1px;
+  background: gold;
+  position: absolute;
+  top: 9px;
+  right: -2px;
+  opacity: 0;
+  transform: rotate(-45deg) translateX(0px);
+  box-sizing: border-box;
+  animation: coli1 0.3s linear infinite;
+}
+.loader2::before {
+  top: -4px;
+  transform: rotate(45deg);
+  animation: coli2 0.3s linear infinite;
+}
+
+@keyframes animFw {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes coli1 {
+  0% {
+    transform: rotate(-45deg) translateX(0px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: rotate(-45deg) translateX(-45px);
+    opacity: 0;
+  }
+}
+
+@keyframes coli2 {
+  0% {
+    transform: rotate(45deg) translateX(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(45deg) translateX(-45px);
+    opacity: 0.7;
+  }
 }

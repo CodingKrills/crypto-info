@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import {
     Link
 } from "react-router-dom";
-import Spinner from "react-bootstrap/Spinner";
 
 const axios = require('axios');
 
@@ -40,37 +39,27 @@ const AllCryptoTableList = () => {
 
                 <div className="table-responsive">
 
-                <table >
 
+                    {loading ?
 
-                        {loading ?
+                        <>
+                            <div style={{ padding: "20% 0 " }}>
+                                <div className='loader2'></div>
+                            </div>
+                        </>
 
-                            <>
-
-<Spinner
-                animation="border"
-                role="status"
-                size="md"
-                variant="light"
-
-                style={{padding:"10px"}}
-              >
-                <span className="sr-only">Loading...</span>
-              </Spinner>
-
-                            </>
-
-                            :
-                            <>
+                        :
+                        <>
+                            <table >
 
                                 <thead>
                                     <tr>
-                                        <th scope="col">RANK</th>
-                                        <th scope="col">IMAGE</th>
-                                        <th scope="col">NAME</th>
-                                        <th scope="col">SYMBOL</th>
-                                        <th scope="col">CURRENT PRICE</th>
-                                        
+                                        <th className="text-theme" scope="col">RANK</th>
+                                        <th className="text-theme" scope="col">IMAGE</th>
+                                        <th className="text-theme" scope="col">NAME</th>
+                                        <th className="text-theme" scope="col">SYMBOL</th>
+                                        <th className="text-theme" scope="col">CURRENT PRICE</th>
+
                                     </tr>
                                 </thead>
 
@@ -79,21 +68,19 @@ const AllCryptoTableList = () => {
                                     return (
 
                                         <tbody>
-                                          
-                                            <tr >
-                                                <td >{item.market_cap_rank}</td>
-                                                <td><img className="img-fluid" width={20} src={item.image} alt='coins' /></td>
+
+                                            <tr>
+                                                <td>{item.market_cap_rank}</td>
+                                                <td><img className="img-fluid" width={20} src={item.image} alt={item.name} /></td>
                                                 <td><Link to={item.id}>
-                                                        <span>
+                                                    <span>
                                                         {item.name}
-                                                        </span>
-                                                    </Link></td>
+                                                    </span>
+                                                </Link></td>
                                                 <td>{item.symbol}</td>
                                                 <td>{item.current_price}</td>
-                                                
                                             </tr>
-                                                
-                                            
+
                                         </tbody>
 
                                     )
@@ -101,34 +88,43 @@ const AllCryptoTableList = () => {
                                 })
                                 }
 
+                            </table>
 
-
-                            </>
-                        }
-
-
-                    </table>
-
+                        </>
+                    }
 
                 </div>
 
-
                 {/* PAGINATIOn */}
 
-
                 <div className="text-center">
-                    {/* <p>You clicked {startLimit} times</p> */}
-                    { (startLimit>5)?
-                    <button className="btn btn-md btn-danger m-4" onClick={() =>   
-                        setStartLimit(startLimit - 5) }> PREV</button>
-                    :<button className="btn btn-md btn-danger m-4" disabled>PREV</button>
-                    
+                    {(startLimit > 5) ?
+                        <button className="btn btn-md btn-circle m-4 shadow grow" onClick={() =>
+                            setStartLimit(startLimit - 5)}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gold" className="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                                <path d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+                            </svg>
+                        </button>
+                        : <button className="btn btn-md btn-circle m-4 shadow grow" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gold" className="bi bi-caret-left" viewBox="0 0 16 16">
+                                <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753l-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z" />
+                            </svg>
+                        </button>
+
                     }
-                    
-                    {(startLimit<100)?
-                    <button className="btn btn-md btn-danger m-4" onClick={() =>
-                        setStartLimit(startLimit + 5) }>  NEXT</button>
-                    :<button className="btn btn-md btn-danger m-4" disabled>NEXT</button>}
+
+                    {(startLimit < 100) ?
+                        <button className="btn btn-md  btn-circle m-4 shadow grow" onClick={() =>
+                            setStartLimit(startLimit + 5)}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gold" className="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                            </svg>
+                        </button>
+                        : <button className="btn btn-md btn-circle m-4 shadow grow" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gold" className="bi bi-caret-right" viewBox="0 0 16 16">
+                                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753l5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
+                            </svg>
+                        </button>}
                 </div>
 
             </div>
