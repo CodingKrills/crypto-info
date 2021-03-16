@@ -14,7 +14,7 @@ const Hero = () => {
                                 <h1 className="hero-white-h1">Take a step into the </h1>
                                 <h1 className="hero-gold-h1">Crypto world !</h1>
                                 <button className="btn btn-theme-solid btn-lg shadow rounded-pill grow">
-                                    <Link to='/'>Get Started</Link>
+                                    <Link to='/about'>Get Started</Link>
                                 </button>
                             </div>
                             <div className="col-12 col-md-4 col-sm-12">
